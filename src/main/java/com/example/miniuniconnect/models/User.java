@@ -1,6 +1,32 @@
 package com.example.miniuniconnect.models;
 
-// JPA Entity representing a User.
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.Set;
+
+@Entity
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
-    // TODO: Define User entity fields and relationships
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    @Column(unique = true, nullable = false)
+    private String email;
+    @Column(nullable = false)
+    private String passwordHash;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private String bio;
+    private String skills;
+
+    public enum Role {
+        STUDENT, INSTRUCTOR, ADMIN
+    }
+    // TODO: Add relationships to projects, applications, resources, discussions, comments
 } 

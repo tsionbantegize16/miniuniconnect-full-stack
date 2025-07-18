@@ -1,6 +1,27 @@
 package com.example.miniuniconnect.models;
 
-// JPA Entity representing an Application (project application).
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "applications")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Application {
-    // TODO: Define Application entity fields and relationships
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    private String message;
+    private String status; // pending/approved
 } 

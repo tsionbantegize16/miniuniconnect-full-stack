@@ -1,6 +1,10 @@
 package com.example.miniuniconnect.repositories;
 
-// Repository for Discussion entity, extends JpaRepository.
-public interface DiscussionRepository {
-    // TODO: Define Discussion repository methods
+import com.example.miniuniconnect.models.Discussion;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface DiscussionRepository extends JpaRepository<Discussion, Long> {
+    // Custom query methods if needed
 } 

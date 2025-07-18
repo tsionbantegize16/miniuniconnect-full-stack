@@ -1,6 +1,10 @@
 package com.example.miniuniconnect.repositories;
 
-// Repository for Application entity, extends JpaRepository.
-public interface ApplicationRepository {
-    // TODO: Define Application repository methods
+import com.example.miniuniconnect.models.Application;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ApplicationRepository extends JpaRepository<Application, Long> {
+    // Custom query methods if needed
 } 

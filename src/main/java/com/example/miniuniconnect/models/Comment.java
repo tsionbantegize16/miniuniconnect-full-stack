@@ -1,6 +1,28 @@
 package com.example.miniuniconnect.models;
 
-// JPA Entity representing a Comment on a discussion.
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "comments")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Comment {
-    // TODO: Define Comment entity fields and relationships
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "discussion_id")
+    private Discussion discussion;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private String comment;
+    private LocalDateTime timestamp;
 } 

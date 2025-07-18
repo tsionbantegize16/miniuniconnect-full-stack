@@ -1,6 +1,15 @@
 package com.example.miniuniconnect.dto;
 
-// Data Transfer Object for Application data.
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ApplicationDTO {
-    // TODO: Define Application DTO fields
+    private Long id;
+    private UserDTO user;
+    private ProjectDTO project;
+    private String message;
+    private String status;
 } 

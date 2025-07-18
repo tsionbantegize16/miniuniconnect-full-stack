@@ -1,6 +1,12 @@
 package com.example.miniuniconnect.dto;
 
-// DTO for login request payload.
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class LoginRequest {
-    // TODO: Define login request fields
+    private String email;
+    private String password;
 } 

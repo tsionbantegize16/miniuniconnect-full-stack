@@ -1,6 +1,26 @@
 package com.example.miniuniconnect.models;
 
-// JPA Entity representing a Discussion (forum post).
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "discussions")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Discussion {
-    // TODO: Define Discussion entity fields and relationships
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String content;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private LocalDateTime timestamp;
 } 

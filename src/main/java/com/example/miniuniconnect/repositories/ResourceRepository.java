@@ -1,6 +1,10 @@
 package com.example.miniuniconnect.repositories;
 
-// Repository for Resource entity, extends JpaRepository.
-public interface ResourceRepository {
-    // TODO: Define Resource repository methods
+import com.example.miniuniconnect.models.Resource;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ResourceRepository extends JpaRepository<Resource, Long> {
+    // Custom query methods if needed
 } 

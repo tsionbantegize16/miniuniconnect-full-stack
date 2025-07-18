@@ -1,6 +1,10 @@
 package com.example.miniuniconnect.repositories;
 
-// Repository for Comment entity, extends JpaRepository.
-public interface CommentRepository {
-    // TODO: Define Comment repository methods
+import com.example.miniuniconnect.models.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CommentRepository extends JpaRepository<Comment, Long> {
+    // Custom query methods if needed
 } 
